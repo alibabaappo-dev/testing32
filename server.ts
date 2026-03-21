@@ -173,9 +173,8 @@ async function startServer() {
     }
   });
 
-  // Mount API routes
-  app.use('/.netlify/functions/api', router);
-  app.use('/api', router);
+  // Mount API routes at the root
+  app.use('/', router);
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
