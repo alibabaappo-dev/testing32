@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import admin from 'firebase-admin';
 import dotenv from 'dotenv';
+// import { createServer as createViteServer } from 'vite'; // YE HATA DIYA HAI
 import path from 'path';
 import nodemailer from 'nodemailer';
 
