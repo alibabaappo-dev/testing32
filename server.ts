@@ -33,10 +33,10 @@ async function startServer() {
   app.use(cookieParser());
 
   // Test Route
-  router.get('/api/health', (req, res) => res.json({ status: 'ok' }));
+  router.get('/health', (req, res) => res.json({ status: 'ok' }));
 
   // Auth Routes
-  router.post('/api/auth/forgot-password', async (req, res) => {
+  router.post('/auth/forgot-password', async (req, res) => {
     try {
       const { email } = req.body;
       if (!email) return res.status(400).json({ error: 'Email is required' });
@@ -85,7 +85,7 @@ async function startServer() {
     }
   });
 
-  router.post('/api/auth/verify-code', async (req, res) => {
+  router.post('/auth/verify-code', async (req, res) => {
     try {
       const { email, code } = req.body;
       const resetSnap = await admin.firestore().collection('passwordResets').doc(email).get();
@@ -98,7 +98,7 @@ async function startServer() {
     }
   });
 
-  router.post('/api/auth/reset-password', async (req, res) => {
+  router.post('/auth/reset-password', async (req, res) => {
     try {
       const { email, code, newPassword } = req.body;
       const resetSnap = await admin.firestore().collection('passwordResets').doc(email).get();
@@ -122,7 +122,7 @@ async function startServer() {
   });
 
   // Push Route
-  router.post('/api/send-push', async (req, res) => {
+  router.post('/send-push', async (req, res) => {
     try {
       const { title, body, targetUserId } = req.body;
       
@@ -173,8 +173,9 @@ async function startServer() {
     }
   });
 
-  // Mount API routes at the root
-  app.use('/', router);
+  // Mount API routes for both local and Netlify environments
+  app.use('/api', router);
+  app.use('/.netlify/functions/api', router);
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
