@@ -4,6 +4,8 @@
 
 [functions]
   node_bundler = "esbuild"
+  # Ye line add karein:
+  external_node_modules = ["lightningcss"]
 
 [[redirects]]
   from = "/api/*"
