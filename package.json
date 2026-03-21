@@ -4,14 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx server.ts",
-    "dev:admin": "VITE_APP_MODE=admin tsx server.ts",
-    "dev:user": "VITE_APP_MODE=user tsx server.ts",
-    "build": "vite build",
-    "preview": "vite preview",
-    "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
-  },
+  "dev": "tsx dev-server.ts",
+  "build": "vite build",
+  "preview": "vite preview"
+}
   "dependencies": {
     "@google/genai": "^1.29.0",
     "@tailwindcss/vite": "^4.1.14",
