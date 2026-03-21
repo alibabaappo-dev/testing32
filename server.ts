@@ -69,7 +69,7 @@ router.post('/auth/forgot-password', async (req, res) => {
       from: process.env.EMAIL_USER,
       to: email,
       subject: 'Password Reset Code - Gamer Zone',
-      html: `<h1>Password Reset</h1><p>Your 4-digit verification code is: <h2>${code}</h2></p>`
+      html: `<h1>Password Reset</h1><p>Your 4-digit verification code is dksnkdnd: <h2>${code}</h2>dkskdns</p>`
     });
 
     res.json({ success: true, message: 'Reset code sent' });
