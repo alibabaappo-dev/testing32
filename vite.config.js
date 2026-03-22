@@ -11,3 +11,8 @@ export default defineConfig({
     dedupe: ['react', 'react-dom']
   }
 })
+// vite.config.js mein
+export default defineConfig({
+  publicDir: 'public', 
+  // ... baaki settings
+})
