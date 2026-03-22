@@ -2,9 +2,9 @@
   command = "npm run build"
   publish = "dist"
 
-[functions]
-  node_bundler = "esbuild"
-  external_node_modules = ["lightningcss"]
+# Ye part add karein taaki public folder ki files copy ho jayein
+[build.environment]
+  NODE_VERSION = "18"
 
 [[redirects]]
   from = "/api/*"
